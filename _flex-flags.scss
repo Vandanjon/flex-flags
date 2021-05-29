@@ -1,0 +1,127 @@
+$contenantSize: 25%;
+$flagSize: 45px;
+$flagPer1: 100%;
+$flagPer2: 33.3333%;
+$border: 2px solid #e9e3e5;
+$flagList1: #214b9f 20%,#e9e3e5 20%,#e9e3e5 30%,#f12241 30%,#f12241 50%,
+#e9e3e5 50%,#e9e3e5 60%,#214b9f 60%;
+$flagList2: #214b9f 40%,#e9e3e5 40%,#e9e3e5 50%,#f12241 50%,#f12241 70%,
+#e9e3e5 70%,#e9e3e5 80%,#214b9f 80%;
+                     
+
+@mixin linear($degre, $list) {
+    background: linear-gradient($degre, $list);
+}
+
+
+#spoken_language {
+    width: $contenantSize;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .flag-container {
+        width: $flagSize;
+        height: $flagSize;
+        border-radius: 50%;
+        display: flex;
+        overflow: hidden;
+
+        // DEUTSCH FAHNE
+        #deutsch {
+            display: flex;
+            flex-direction: column;
+            width: $flagPer1;
+            height: $flagPer1;
+
+            #De1 {
+                background-color: #17160c;
+                width: $flagPer1;
+                height: $flagPer2;
+            }
+
+            #De2 {
+                background-color: #b80419;
+                width: $flagPer1;
+                height: $flagPer2;
+            }
+
+            #De3 {
+                background-color: #f7b839;
+                width: $flagPer1;
+                height: $flagPer2;
+            }
+        }
+        // DEUTSCH FAHNE
+
+        // ENGLISH FLAG
+        #english {
+            background-color: #f12241;
+            display: flex;
+            width: $flagPer1;
+            height: $flagPer1;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .qr {
+                width: 38%;
+                height: 38%;
+                display: flex;
+                background-size: 100% 100%;
+            }
+
+            #En1 {
+                border-bottom: $border;
+                border-right: $border;
+                @include linear(45deg, $flagList1);
+            }
+
+            #En2 {
+                border-bottom: $border;
+                border-left: $border;
+                @include linear(135deg, $flagList2);
+            }
+
+            #En3 {
+                border-top: $border;
+                border-right: $border;
+                @include linear(315deg, $flagList1);
+                align-self: flex-end;
+            }
+
+            #En4 {
+                border-top: $border;
+                border-left: $border;
+                @include linear(225deg, $flagList2);
+                align-self: flex-end;
+            }
+        }
+        // ENGLISH FLAG
+
+        // DRAPEAU FRANCAIS
+        #francais {
+            display: flex;
+            width: $flagPer1;
+            height: $flagPer1;
+
+            #Fr1 {
+                background-color: #0061a4;
+                width: $flagPer2;
+                height: $flagPer1;
+            }
+
+            #Fr2 {
+                background-color: #dee5e9;
+                width: $flagPer2;
+                height: $flagPer1;
+            }
+
+            #Fr3 {
+                background-color: #d60920;
+                width: $flagPer2;
+                height: $flagPer1;
+            }
+        }
+        // DRAPEAU FRANCAIS
+    }
+}
